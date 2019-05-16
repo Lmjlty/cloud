@@ -22,6 +22,7 @@ import java.lang.reflect.Method;
 import java.util.Properties;
 
 import org.apache.commons.lang3.time.DateUtils;
+import org.apache.rocketmq.broker.processor.SendMessageProcessor;
 import org.apache.rocketmq.common.BrokerConfig;
 import org.apache.rocketmq.common.MQVersion;
 import org.apache.rocketmq.remoting.netty.NettyClientConfig;
@@ -32,10 +33,11 @@ import org.apache.rocketmq.store.config.MessageStoreConfig;
 import org.junit.Assert;
 import org.junit.Test;
 
+import io.netty.channel.AbstractChannel;
+
 public class BrokerStartupTest {
 
     private String storePathRootDir = ".";
-
     @Test
     public void testProperties2SystemEnv() throws NoSuchMethodException, InvocationTargetException,
         IllegalAccessException {
